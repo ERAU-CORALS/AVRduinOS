@@ -1,0 +1,14 @@
+{
+    "name": "SomeLib",
+    "version": "0.0.0",
+    "build": {
+      "includeDir": ".",
+      "flags": [
+        "-I FreeRTOS_Wrapper/General/include",
+        "-I FreeRTOS_Wrapper/Test/include",
+        "-I Utilities/Test",
+        "-I Utilities/DataStructures",
+        "-I ."
+      ]
+    }
+  }
