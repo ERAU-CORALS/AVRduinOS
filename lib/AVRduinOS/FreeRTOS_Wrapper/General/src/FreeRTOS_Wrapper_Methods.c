@@ -43,7 +43,9 @@ thread_function_t ConfigureThread(const char *thread_name, thread_loop_t functio
 }
 
 thread_return_t CreateThread(thread_handle_t *thread, thread_function_t function) {
-  if (thread != NULL) 
+  if (thread == NULL) 
+    return THREAD_HANDLE_INVALID;
+  if (*thread != NULL) 
     return THREAD_HANDLE_INVALID;
   if (function.valid != THREAD_STRUCT_VALID) 
     return THREAD_FUNCTION_INVALID;
