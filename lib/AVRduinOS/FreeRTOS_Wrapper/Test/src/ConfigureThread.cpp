@@ -12,8 +12,7 @@
 
 #include "ConfigureThread.hpp"
 
-#include "FreeRTOS_Wrapper_Methods.h"
-#include "FreeRTOS_Wrapper_Types.h"
+#include "FreeRTOS_Wrapper.h"
 
 #include "thread_test_utilities.hpp"
 #include "test_utilities.hpp"

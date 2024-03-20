@@ -15,7 +15,12 @@
 
 #include "FreeRTOS_Wrapper.h"
 
+static bool test_booleans[32];
+static thread_time_t delay_test_time;
+
 void Valid_Function(void* params = NULL);
 void Valid_Function2(void* params = NULL);
+
+void ThreadDelay_Test(void* params = NULL);
 
 #endif // __THREAD_TEST_UTILITIES_HPP__

@@ -14,8 +14,8 @@
 
 #include "FreeRTOS_Wrapper_Types.h"
 
-#ifndef __FREERTOS_WRAPPER_H__
-#define __FREERTOS_WRAPPER_H__
+#ifndef __FREERTOS_WRAPPER_METHODS_H__
+#define __FREERTOS_WRAPPER_METHODS_H__
 
 #ifdef __cplusplus
   extern "C" {
@@ -98,23 +98,23 @@ thread_return_t ThreadDeltaDelay(thread_time_t reference_time,
  ********************************************************************************
  * @brief   Start a thread
  ********************************************************************************
- * @param[in]     thread  TYPE: thread_handle_t *
+ * @param[in]     thread  TYPE: thread_handle_t
  ********************************************************************************
  * @return  thread_return_t 
  ********************************************************************************
 **/
-thread_return_t StartThread(thread_handle_t *thread);
+thread_return_t StartThread(thread_handle_t thread);
 
 /**
  ********************************************************************************
  * @brief   Stop a thread
  ********************************************************************************
- * @param[in]     thread  TYPE: thread_handle_t *
+ * @param[in]     thread  TYPE: thread_handle_t
  ********************************************************************************
  * @return  thread_return_t 
  ********************************************************************************
 **/
-thread_return_t StopThread(thread_handle_t *thread);
+thread_return_t StopThread(thread_handle_t thread);
 
 /**
  ********************************************************************************
@@ -415,8 +415,45 @@ thread_notice_value_t ThreadNoticeValueClearIndex(thread_handle_t *thread,
                                                   thread_notice_value_t clear_mesh, 
                                                   thread_notice_index_t index);
 
+/**
+ *******************************************************************************
+ * @brief   Start the Thread Scheduler
+ *******************************************************************************
+**/
+void StartThreadScheduler();
+
+/**
+ *******************************************************************************
+ * @brief   Stop the Thread Scheduler
+ *******************************************************************************
+**/
+void StopThreadScheduler();
+
+/**
+ *******************************************************************************
+ * @brief   Suspend the Thread Scheduler
+ *******************************************************************************
+**/
+void SuspendThreadScheduler();
+
+/**
+ *******************************************************************************
+ * @brief   Resume the Thread Scheduler
+ *******************************************************************************
+**/
+void ResumeThreadScheduler();
+
+/**
+ *******************************************************************************
+ * @brief   Get the handle of the current thread
+ *******************************************************************************
+ * @return  thread_handle_t
+ *******************************************************************************
+**/
+thread_handle_t GetSelfThreadHandle();
+
 #ifdef __cplusplus
   }
 #endif // __cplusplus
 
-#endif // __FREERTOS_WRAPPER_H__
+#endif // __FREERTOS_WRAPPER_METHODS_H__

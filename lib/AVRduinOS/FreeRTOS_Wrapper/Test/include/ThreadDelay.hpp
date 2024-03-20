@@ -1,8 +1,8 @@
 /**
  ********************************************************************************
- * @file    FreeRTOS_Wrapper_Test.h
+ * @file    ThreadDelay.hpp
  * @author  Logan Ruddick (Logan@Ruddicks.net)
- * @brief   Function Wrapper Tests for FreeRTOS
+ * @brief   Unit Tests for the ThreadDelay Function in the FreeRTOS Wrapper
  * @version 1.0
  * @date    2024-03-18
  ********************************************************************************
@@ -10,12 +10,11 @@
  ********************************************************************************
 **/
 
-#ifndef __FREERTOS_WRAPPER_TEST_H__
-#define __FREERTOS_WRAPPER_TEST_H__
+#ifndef __THREAD_DELAY_HPP__
+#define __THREAD_DELAY_HPP__
 
-#include "ConfigureThread.hpp"
-#include "CreateThread.hpp"
-#include "DeleteThread.hpp"
-#include "ThreadDelay.hpp"
+#include "test_utilities.hpp"
 
-#endif // __FREERTOS_WRAPPER_TEST_H__
+test_results_t SDD_025();
+
+#endif // __THREAD_DELAY_HPP__

@@ -66,28 +66,29 @@ thread_return_t DeleteThread(thread_handle_t *thread) {
 }
 
 thread_return_t ThreadDelay(thread_time_t delay_ms) {
-  vTaskDelay(delay_ms);
+  vTaskDelay(pdMS_TO_TICKS(delay_ms));
   return THREAD_SUCCESS;
 }
 
 thread_return_t ThreadDeltaDelay(thread_time_t reference_time, thread_time_t delay_ms) {
-  BaseType_t retval = xTaskDelayUntil(&reference_time, delay_ms);
+  TickType_t reference_tick = pdMS_TO_TICKS(reference_time);
+  BaseType_t retval = xTaskDelayUntil(&reference_tick, pdMS_TO_TICKS(delay_ms));
   return ThreadAssert(retval);
 }
 
-thread_return_t StartThread(thread_handle_t *thread) {
+thread_return_t StartThread(thread_handle_t thread) {
   if (thread == NULL) 
     return THREAD_HANDLE_INVALID;
 
-  vTaskResume(*thread);
+  vTaskResume(thread);
   return THREAD_SUCCESS;
 }
 
-thread_return_t StopThread(thread_handle_t *thread) {
+thread_return_t StopThread(thread_handle_t thread) {
   if (thread == NULL) 
     return THREAD_HANDLE_INVALID;
 
-  vTaskSuspend(*thread);
+  vTaskSuspend(thread);
   return THREAD_SUCCESS;
 }
 
@@ -196,6 +197,26 @@ thread_notice_value_t ThreadNoticeValueClearIndex(thread_handle_t *thread, threa
     return THREAD_NOTICE_INDEX_INVALID;
   
   return ulTaskNotifyValueClearIndexed(*thread, index, clear_mesh);
+}
+
+void StartThreadScheduler() {
+  vTaskStartScheduler();
+}
+
+void StopThreadScheduler() {
+  vTaskEndScheduler();
+}
+
+void SuspendThreadScheduler() {
+  vTaskSuspendAll();
+}
+
+void ResumeThreadScheduler() {
+  xTaskResumeAll();
+}
+
+thread_handle_t GetSelfThreadHandle() {
+  return xTaskGetCurrentTaskHandle();
 }
 
 thread_return_t ThreadAssert(BaseType_t return_in) {

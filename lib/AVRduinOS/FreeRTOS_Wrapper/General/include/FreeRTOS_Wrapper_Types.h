@@ -10,8 +10,8 @@
  ********************************************************************************
 **/
 
-#ifndef __AVRDUINOS_TYPES_H__
-#define __AVRDUINOS_TYPES_H__
+#ifndef __FREERTOS_WRAPPER_TYPES_H__
+#define __FREERTOS_WRAPPER_TYPES_H__
 
 #ifdef __cplusplus
   extern "C" {
@@ -82,4 +82,4 @@ typedef struct __thread_function {
   }
 #endif // __cplusplus
 
-#endif // __AVRDUINOS_TYPES_H__
+#endif // __FREERTOS_WRAPPER_TYPES_H__
