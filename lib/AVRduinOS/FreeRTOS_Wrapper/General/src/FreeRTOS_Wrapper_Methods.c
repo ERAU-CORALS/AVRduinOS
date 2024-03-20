@@ -57,6 +57,8 @@ thread_return_t CreateThread(thread_handle_t *thread, thread_function_t function
 thread_return_t DeleteThread(thread_handle_t *thread) {
   if (thread == NULL) 
     return THREAD_HANDLE_INVALID;
+  if (*thread == NULL) 
+    return THREAD_HANDLE_INVALID;
 
   vTaskDelete(*thread);
   *thread = NULL;

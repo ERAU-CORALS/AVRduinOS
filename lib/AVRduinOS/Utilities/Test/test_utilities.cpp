@@ -120,7 +120,7 @@ void __TestPostamble(const char *testName,
     PrintLine();
     verify_output("\n");
 
-    Print("\tTest Results for %s:", testName);
+    Print("Test Results for %s:", testName);
     Print("\t%d Test Points\n", results.total);
 
     Print("\t%d Passed\n", results.passed);

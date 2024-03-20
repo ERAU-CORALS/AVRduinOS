@@ -14,5 +14,7 @@
 #define __FREERTOS_WRAPPER_TEST_H__
 
 #include "ConfigureThread.hpp"
+#include "CreateThread.hpp"
+#include "DeleteThread.hpp"
 
 #endif // __FREERTOS_WRAPPER_TEST_H__

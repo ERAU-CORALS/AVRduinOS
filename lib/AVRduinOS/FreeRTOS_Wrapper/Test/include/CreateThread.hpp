@@ -1,8 +1,8 @@
 /**
  ********************************************************************************
- * @file    thread_test_utilities.cpp
+ * @file    CreateThread.hpp
  * @author  Logan Ruddick (Logan@Ruddicks.net)
- * @brief   Unit Tests supplements for the FreeRTOS Wrapper
+ * @brief   Unit Tests for the CreateThread Function in the FreeRTOS Wrapper
  * @version 1.0
  * @date    2024-03-18
  ********************************************************************************
@@ -10,12 +10,14 @@
  ********************************************************************************
 **/
 
-#include "thread_test_utilities.hpp"
+#ifndef __CREATE_THREAD_HPP__
+#define __CREATE_THREAD_HPP__
 
-void Valid_Function(void *params) {
-    for (;;) continue;
-}
+#include "test_utilities.hpp"
 
-void Valid_Function2(void *params) {
-    for (;;) continue;
-}
+test_results_t SDD_013_017();
+test_results_t SDD_014_017();
+test_results_t SDD_015_017();
+test_results_t SDD_018();
+
+#endif // __CREATE_THREAD_HPP__

@@ -1,8 +1,8 @@
 /**
  ********************************************************************************
- * @file    thread_test_utilities.cpp
+ * @file    DeleteThread.hpp
  * @author  Logan Ruddick (Logan@Ruddicks.net)
- * @brief   Unit Tests supplements for the FreeRTOS Wrapper
+ * @brief   Unit Tests for the DeleteThread Function in the FreeRTOS Wrapper
  * @version 1.0
  * @date    2024-03-18
  ********************************************************************************
@@ -10,12 +10,13 @@
  ********************************************************************************
 **/
 
-#include "thread_test_utilities.hpp"
+#ifndef __DELETE_THREAD_HPP__
+#define __DELETE_THREAD_HPP__
 
-void Valid_Function(void *params) {
-    for (;;) continue;
-}
+#include "test_utilities.hpp"
 
-void Valid_Function2(void *params) {
-    for (;;) continue;
-}
+test_results_t SDD_020();
+test_results_t SDD_021();
+test_results_t SDD_022();
+
+#endif // __DELETE_THREAD_HPP__
