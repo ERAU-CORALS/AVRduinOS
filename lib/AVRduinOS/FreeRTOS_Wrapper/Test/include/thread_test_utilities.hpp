@@ -16,5 +16,6 @@
 #include "FreeRTOS_Wrapper.h"
 
 void Valid_Function(void* params = NULL);
+void Valid_Function2(void* params = NULL);
 
 #endif // __THREAD_TEST_UTILITIES_HPP__

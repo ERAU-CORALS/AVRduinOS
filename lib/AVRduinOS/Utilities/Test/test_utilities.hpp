@@ -66,10 +66,21 @@ void __Verify(const char *testFile,
               test_results_t *results,
               verification_type_t type);
 
+
+void __Verify(const char *testFile,
+              const int lineNumber,
+              const char *valueName,
+              const char *expected,
+              const char *actual,
+              test_results_t *results,
+              verification_type_t type);
+
 void Banner(const char* fmt, ...)
         __attribute__((format(printf, 1, 2)));
 void Print(const char* fmt, ...)
         __attribute__((format(printf, 1, 2)));
+
+void PrintLine();
 
 #define TestPreamble(testDescription, testForLoopSets, testPreconditionsList, testResultsList) verify_output("\n"); \
                     string_array_t forLoopSets = {testForLoopSets, (testForLoopSets == NULL) ? 0 : sizeof(testForLoopSets) / sizeof(char*)}; \
@@ -80,7 +91,7 @@ void Print(const char* fmt, ...)
 #define TestPostamble() __TestPostamble(__func__, __test_results); \
                         verify_output("\n"); \
                         return __test_results;
-#define Verify(valueName, expected, actual, type) __Verify(__FILE__, __LINE__, valueName, expected, actual, &__test_results, type);
+#define Verify(valueName, expected, actual, type) __Verify (__FILE__, __LINE__, valueName, expected, actual, &__test_results, type);
 
 
 #endif // __TEST_UTILITIES_HPP__

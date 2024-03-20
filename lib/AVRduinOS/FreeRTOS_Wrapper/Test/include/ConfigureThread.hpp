@@ -20,5 +20,6 @@ test_results_t SDD_006_010();
 test_results_t SDD_007_010();
 test_results_t SDD_008_010();
 test_results_t SDD_009_010();
+test_results_t SDD_011();
 
 #endif // __CONFIGURE_THREAD_H__

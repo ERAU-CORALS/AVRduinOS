@@ -15,3 +15,7 @@
 void Valid_Function(void *params) {
     // Do nothing
 }
+
+void Valid_Function2(void *params) {
+    // Do nothing
+}

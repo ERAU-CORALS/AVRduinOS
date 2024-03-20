@@ -323,6 +323,55 @@ void __Verify(const char *testFile,
     verify_output("\n");
 }
 
+void __Verify(const char *testFile,
+              const int lineNumber,
+              const char *valueName,
+              const char *expected,
+              const char *actual,
+              test_results_t *results,
+              verification_type_t type) {
+    results->total++;
+    bool passed = false;
+    switch (type) {
+        case EQUAL:
+            Print("Verifying %s is equal to \"%s\"...\n", valueName, expected);
+            if (strcmp(expected, actual) == 0) {
+                Print("The expected value of ==\"%s\" has been verified.", expected);
+                passed = true;
+            }
+            else {
+                Print("The expected value of ==\"%s\" has not been verified.", expected);
+                Print("The actual value was %s.", actual);
+            }
+            break;
+        case NOT_EQUAL:
+            Print("Verifying %s is not equal to \"%s\"...\n", valueName, expected);
+            if (strcmp(expected, actual) != 0) {
+                Print("The expected value of !=%s has been verified.", expected);
+                passed = true;
+            }
+            else {
+                Print("The expected value of !=%s has not been verified.", expected);
+                Print("The actual value was %s.", actual);
+            }
+            break;
+        default:
+            Print("Invalid verification type.");
+            break;
+    }
+
+    if (passed) {
+        PrintPass(results->total);
+        results->passed++;
+    }
+    else {
+        PrintFail(results->total, lineNumber, testFile);
+        results->failed++;
+    }
+
+    verify_output("\n");
+}
+
 void PrintLine() {
     for (uint8_t i = 0; i < MAX_LINE_LENGTH; i++) {
         verify_output('-');
